@@ -2,7 +2,7 @@ import { AllHTMLAttributes, createElement, KeyboardEventHandler, MouseEventHandl
 import { createUseStyles } from "react-jss";
 import clsx from "clsx";
 import { THEME } from "../../theme"
-import { Space } from "../../functions/style.type";
+import { BreakPoint, Space } from "../../functions/style.type";
 
 export interface IBox extends AllHTMLAttributes<HTMLElement> {
   children?: React.ReactNode,
@@ -14,6 +14,18 @@ export interface IBox extends AllHTMLAttributes<HTMLElement> {
     onBlur?: MouseEventHandler,
     onKeyUp?: KeyboardEventHandler
   }
+}
+
+function toMedia ({responsive}: StylesType) {
+  const result: any = {}
+  const mediaParam = THEME.responsiveDirection === 'desktop-first' ? 'max-width' : 'min-width'
+  
+  Object.keys(THEME.breakPoint).forEach((key: string) => {
+    result[
+      `@media (${mediaParam}: ${THEME.breakPoint[key as BreakPoint]})`
+    ] = responsive && responsive[key]
+  })
+  return result
 }
 
 type StylesType = {
@@ -31,6 +43,11 @@ type StylesType = {
   marginBottom?: Space | string,
   marginBlock?: Space | string,
   marginInline?: Space | string,
+  responsive?: {
+    [key: string]: {
+      [key: string]: any
+    }
+  },
   [key: string]: any
 }
 
@@ -52,6 +69,7 @@ export function Box ({ children, ...props }: IBox) {
       marginBottom: theme.space[styles.marginBottom as Space] || styles.marginBottom,
       marginBlock: theme.space[styles.marginBlock as Space] || styles.marginBlock,
       marginInline: theme.space[styles.marginInline as Space] || styles.marginInline,
+      ...toMedia(styles)
     })
   }))
   const classes = useStyles(props.styles || {})

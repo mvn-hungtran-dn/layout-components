@@ -8,10 +8,10 @@ export const THEME = {
     xxlarge: '64px'
   } as const,
   breakPoint: {
-    mobile: 0,
-    tablet: '740px',
+    wide: '1200px',
     desktop: '992px',
-    wide: '1200px'
+    tablet: '740px',
+    mobile: 0
   },
   colors: {
     light: {
@@ -20,5 +20,6 @@ export const THEME = {
     dark: {
   
     }
-  }
+  },
+  responsiveDirection: 'desktop-first'
 } as const
