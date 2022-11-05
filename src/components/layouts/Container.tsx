@@ -1,3 +1,4 @@
+import { THEME } from "../../theme";
 import { Box } from "./Box";
 
 interface IContainer {
@@ -11,14 +12,7 @@ export function Container (props: IContainer) {
         paddingInline: 'medium',
         marginBlock: '0',
         marginInline: 'auto',
-        responsive: {
-          tablet: {
-            maxWidth: '700px'
-          },
-          desktop: {
-            maxWidth: '900px'
-          }
-        }
+        responsive: THEME.responsiveContainer
       }}
     >
       {props.children}

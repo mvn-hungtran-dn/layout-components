@@ -13,6 +13,14 @@ export const THEME = {
     tablet: '740px',
     mobile: 0
   },
+  responsiveContainer: {
+    tablet: {
+      maxWidth: '700px'
+    },
+    desktop: {
+      maxWidth: '900px'
+    }
+  },
   colors: {
     light: {
 
