@@ -8,10 +8,10 @@ export const THEME = {
     xxlarge: '64px'
   } as const,
   breakPoint: {
-    wide: '1200px',
-    desktop: '992px',
+    mobile: 0,
     tablet: '740px',
-    mobile: 0
+    desktop: '992px',
+    wide: '1200px'
   },
   responsiveContainer: {
     tablet: {
@@ -29,5 +29,5 @@ export const THEME = {
   
     }
   },
-  responsiveDirection: 'desktop-first'
+  responsiveDirection: 'mobile-first'
 } as const

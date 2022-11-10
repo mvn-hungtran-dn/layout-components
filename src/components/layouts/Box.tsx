@@ -16,18 +16,6 @@ export interface IBox extends AllHTMLAttributes<HTMLElement> {
   }
 }
 
-function toMedia ({responsive}: StylesType) {
-  const result: any = {}
-  const mediaParam = THEME.responsiveDirection === 'desktop-first' ? 'max-width' : 'min-width'
-  
-  Object.keys(THEME.breakPoint).forEach((key: string) => {
-    result[
-      `@media (${mediaParam}: ${THEME.breakPoint[key as BreakPoint]})`
-    ] = responsive && responsive[key]
-  })
-  return result
-}
-
 type StylesType = {
   padding?: Space | string,
   paddingTop?: Space | string,
@@ -43,10 +31,11 @@ type StylesType = {
   marginBottom?: Space | string,
   marginBlock?: Space | string,
   marginInline?: Space | string,
+  nestedSelector?: '',
   responsive?: {
     [key: string]: {
       [key: string]: any
-    }
+    },
   },
   [key: string]: any
 }
@@ -68,8 +57,7 @@ export function Box ({ children, ...props }: IBox) {
       marginRight: theme.space[styles.marginRight as Space] || styles.marginRight,
       marginBottom: theme.space[styles.marginBottom as Space] || styles.marginBottom,
       marginBlock: theme.space[styles.marginBlock as Space] || styles.marginBlock,
-      marginInline: theme.space[styles.marginInline as Space] || styles.marginInline,
-      ...toMedia(styles)
+      marginInline: theme.space[styles.marginInline as Space] || styles.marginInline
     })
   }))
   const classes = useStyles(props.styles || {})

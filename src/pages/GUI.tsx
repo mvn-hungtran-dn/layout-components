@@ -28,7 +28,21 @@ export function GUI () {
         <Placeholder height="50px"></Placeholder>
       </Stack>
       <p>Tiles</p>
-      <Tiles columns={3}>
+      <Tiles
+        space={{
+          mobile: 'small',
+          wide: 'medium',
+          desktop: 'large',
+          tablet: 'xlarge'
+        }}
+        columns={{
+          mobile: 1,
+          wide: 4,
+          desktop: 3,
+          tablet: 2
+        }}
+      >
+        <Placeholder height="50px"></Placeholder>
         <Placeholder height="50px"></Placeholder>
         <Placeholder height="50px"></Placeholder>
         <Placeholder height="50px"></Placeholder>
