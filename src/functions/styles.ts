@@ -2,7 +2,7 @@ import { THEME } from './../theme';
 import { Space, BreakPoint, ColumnsResponsive } from './style.type';
 
 export function negativeSpace(space: Space | `${number}px` | ''): string {
-  if (typeof space === 'object') {
+  if (typeof space === 'object' || !space) {
     return ''
   }
   

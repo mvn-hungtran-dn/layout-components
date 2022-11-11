@@ -8,7 +8,12 @@ export function GUI () {
   return (
     <Container>
       <p>Inline</p>
-      <Inline space="xxlarge">
+      <Inline space={{
+        mobile: "small",
+        tablet: 'medium',
+        desktop: 'large',
+        wide: 'xlarge'
+      }}>
         <Placeholder width="50px" height="50px"></Placeholder>
         <Placeholder width="50px" height="50px"></Placeholder>
         <Placeholder width="50px" height="50px"></Placeholder>
@@ -22,7 +27,12 @@ export function GUI () {
         <Placeholder width="50px" height="50px"></Placeholder>
       </Inline>
       <p>Stack</p>
-      <Stack space="xxlarge">
+      <Stack space={{
+        mobile: "small",
+        tablet: 'medium',
+        desktop: 'large',
+        wide: 'xlarge'
+      }}>
         <Placeholder height="50px"></Placeholder>
         <Placeholder height="50px"></Placeholder>
         <Placeholder height="50px"></Placeholder>
