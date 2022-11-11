@@ -33,14 +33,14 @@ export function beforePseudo (rule: any) {
   }
 }
 
-export function toMedia (space: any) {
+export function toMedia (rules: any) {
   const result: any = {}
   const mediaParam = 'min-width'
 
   Object.keys(THEME.breakPoint).forEach((key: string) => {
     result[
       `@media (${mediaParam}: ${THEME.breakPoint[key as BreakPoint]})`
-    ] = space && space[key]
+    ] = rules && rules[key]
   })
   return result
 }

@@ -2,7 +2,8 @@ import { AllHTMLAttributes, createElement, KeyboardEventHandler, MouseEventHandl
 import { createUseStyles } from "react-jss";
 import clsx from "clsx";
 import { THEME } from "../../theme"
-import { BreakPoint, Space } from "../../functions/style.type";
+import { Space } from "../../functions/style.type";
+import { toMedia } from "../../functions/styles";
 
 export interface IBox extends AllHTMLAttributes<HTMLElement> {
   children?: React.ReactNode,
@@ -43,6 +44,7 @@ type StylesType = {
 export function Box ({ children, ...props }: IBox) {
   const useStyles = createUseStyles((theme: typeof THEME) => ({
     boxStyle: (styles: StylesType) => ({
+      // ...toMedia(styles.responsive),
       ...styles,
       padding: theme.space[styles.padding as Space] || styles.padding,
       paddingTop: theme.space[styles.paddingTop as Space] || styles.paddingTop,
@@ -57,7 +59,7 @@ export function Box ({ children, ...props }: IBox) {
       marginRight: theme.space[styles.marginRight as Space] || styles.marginRight,
       marginBottom: theme.space[styles.marginBottom as Space] || styles.marginBottom,
       marginBlock: theme.space[styles.marginBlock as Space] || styles.marginBlock,
-      marginInline: theme.space[styles.marginInline as Space] || styles.marginInline
+      marginInline: theme.space[styles.marginInline as Space] || styles.marginInline,
     })
   }))
   const classes = useStyles(props.styles || {})

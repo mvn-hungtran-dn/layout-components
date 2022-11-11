@@ -1,3 +1,4 @@
+import { Bleed } from "../components/layouts/Bleed"
 import { Container } from "../components/layouts/Container"
 import { Inline } from "../components/layouts/Inline"
 import { Placeholder } from "../components/layouts/Placeholder"
@@ -57,6 +58,18 @@ export function GUI () {
         <Placeholder height="50px"></Placeholder>
         <Placeholder height="50px"></Placeholder>
       </Tiles>
+      <p>Bleed</p>
+      <Bleed
+        component="div"
+        horizontal={{
+          mobile: 'small',
+          wide: 'medium',
+          desktop: 'large',
+          tablet: 'xlarge'
+        }}
+      >
+        <Placeholder height="50px"></Placeholder>
+      </Bleed>
     </Container>
   )
 }
