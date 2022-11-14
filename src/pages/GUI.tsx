@@ -1,4 +1,6 @@
 import { Bleed } from "../components/layouts/Bleed"
+import { Column } from "../components/layouts/Column"
+import { Columns } from "../components/layouts/Columns"
 import { Container } from "../components/layouts/Container"
 import { Inline } from "../components/layouts/Inline"
 import { Placeholder } from "../components/layouts/Placeholder"
@@ -70,6 +72,18 @@ export function GUI () {
       >
         <Placeholder height="50px"></Placeholder>
       </Bleed>
+      <p>Columns</p>
+      <Columns space="medium">
+        <Column width={1/2}>
+          <Placeholder height="50px"></Placeholder>
+        </Column>
+        <Column>
+          <Placeholder height="50px"></Placeholder>
+        </Column>
+        <Column>
+          <Placeholder height="50px"></Placeholder>
+        </Column>
+      </Columns>
     </Container>
   )
 }
