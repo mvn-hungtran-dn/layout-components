@@ -73,8 +73,18 @@ export function GUI () {
         <Placeholder height="50px"></Placeholder>
       </Bleed>
       <p>Columns</p>
-      <Columns space="medium">
-        <Column width={1/2}>
+      <Columns space={{
+         mobile: 'small',
+         wide: 'medium',
+         desktop: 'large',
+         tablet: 'xlarge'
+      }}>
+        <Column width={{
+          mobile: 1/2,
+          wide: 1/2,
+          desktop: 1/3,
+          tablet: 1/4
+        }}>
           <Placeholder height="50px"></Placeholder>
         </Column>
         <Column>

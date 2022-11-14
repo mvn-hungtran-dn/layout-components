@@ -3,7 +3,6 @@ import { createUseStyles } from "react-jss";
 import clsx from "clsx";
 import { THEME } from "../../theme"
 import { Space } from "../../functions/style.type";
-import { toMedia } from "../../functions/styles";
 
 export interface IBox extends AllHTMLAttributes<HTMLElement> {
   children?: React.ReactNode,

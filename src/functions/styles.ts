@@ -83,10 +83,13 @@ export function resolveSpaceResponsive (
 }
 
 export function resolveWidthResponsive (columns: ColumnsResponsive) {
+  if (typeof columns !== 'object') {
+    return {}
+  }
   return {
-    mobile: `${100 / ((columns as ColumnsResponsive)['mobile'] || 1)}%`,
-    tablet: `${100 / ((columns as ColumnsResponsive)['tablet'] || 1)}%`,
-    desktop: `${100 / ((columns as ColumnsResponsive)['desktop'] || 1)}%`,
-    wide: `${100 / ((columns as ColumnsResponsive)['wide'] || 1)}%`,
+    mobile: `${100 * ((columns as ColumnsResponsive)['mobile'] || 1)}%`,
+    tablet: `${100 * ((columns as ColumnsResponsive)['tablet'] || 1)}%`,
+    desktop: `${100 * ((columns as ColumnsResponsive)['desktop'] || 1)}%`,
+    wide: `${100 * ((columns as ColumnsResponsive)['wide'] || 1)}%`
   }
 }

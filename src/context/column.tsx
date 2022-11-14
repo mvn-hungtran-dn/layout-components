@@ -2,8 +2,10 @@ import { createContext } from "react";
 
 export const ColumnsContext = createContext<{
   marginLeft: string;
+  marginLeftResponsive: any,
   width: string;
 }>({
   marginLeft: 'small',
-  width: "100%",
+  marginLeftResponsive: {},
+  width: 'auto',
 })
